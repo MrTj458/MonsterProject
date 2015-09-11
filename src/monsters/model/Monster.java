@@ -27,7 +27,18 @@ public class Monster
 	}
 	public String toString()
 	{
-		String monsterInfo = "My monster has " + monsterLegs + " legs and its' name is " + monsterName + ".";
+		String bbutton;
+		if (monsterBellyButton == true)
+		{
+			bbutton = "has";
+		}
+		else
+		{
+			bbutton = "does not have";
+		}
+		
+		String monsterInfo = "My monster is named " + monsterName + ". He has " + monsterEyes + " eyes, "
+		+ monsterNoses + " noses, " + monsterArms + " arms, " + monsterLegs + " legs, " + monsterHair + " hairs, and he " + bbutton + " a belly button.";
 		
 		return monsterInfo;
 	}
