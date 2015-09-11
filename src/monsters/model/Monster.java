@@ -25,4 +25,10 @@ public class Monster
 		this.monsterHair = monsterHair;
 		this.monsterArms = monsterArms;
 	}
+	public String toString()
+	{
+		String monsterInfo = "My monster has " + monsterLegs + " legs and its' name is " + monsterName + ".";
+		
+		return monsterInfo;
+	}
 }

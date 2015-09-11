@@ -1,10 +1,12 @@
 package monsters.controller;
 
 import monsters.model.Monster;
+import monsters.view.MonsterDisplay;
 
 public class MonsterController
 {
 	private Monster TJMonster;
+	private MonsterDisplay myDisplay;
 	
 	public MonsterController()
 	{
@@ -16,12 +18,12 @@ public class MonsterController
 		double hair = 2.5;
 		boolean BellyButton = true;
 		
-		
+		myDisplay = new MonsterDisplay();
 		TJMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
 	}
 	
 	public void start()
 	{
-		
+		myDisplay.displayInfo(TJMonster.toString());
 	}
 }
