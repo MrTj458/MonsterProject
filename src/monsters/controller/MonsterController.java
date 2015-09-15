@@ -2,9 +2,11 @@ package monsters.controller;
 
 import monsters.model.Monster;
 import monsters.view.MonsterDisplay;
+import java.util.Scanner;
 
 public class MonsterController
 {
+	private Scanner monsterScanner;
 	private Monster DwaneMonster;
 	private MonsterDisplay myDisplay;
 	
@@ -18,6 +20,7 @@ public class MonsterController
 		double hair = 2.5;
 		boolean BellyButton = true;
 		
+		monsterScanner = new Scanner(System.in);
 		myDisplay = new MonsterDisplay();
 		DwaneMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
 	}
@@ -25,5 +28,14 @@ public class MonsterController
 	public void start()
 	{
 		myDisplay.displayInfo(DwaneMonster.toString());
+		askQuestions();
+		myDisplay.displayInfo("Updated monster Info: " + DwaneMonster.toString());
+	}
+	
+	private void askQuestions()
+	{
+		System.out.println("Enter a new name for your monster: ");
+		String newMonsterName = monsterScanner.next();
+		DwaneMonster.setMonsterName(newMonsterName);
 	}
 }
