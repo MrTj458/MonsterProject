@@ -5,7 +5,7 @@ import monsters.view.MonsterDisplay;
 
 public class MonsterController
 {
-	private Monster TJMonster;
+	private Monster DwaneMonster;
 	private MonsterDisplay myDisplay;
 	
 	public MonsterController()
@@ -19,11 +19,11 @@ public class MonsterController
 		boolean BellyButton = true;
 		
 		myDisplay = new MonsterDisplay();
-		TJMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
+		DwaneMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
 	}
 	
 	public void start()
 	{
-		myDisplay.displayInfo(TJMonster.toString());
+		myDisplay.displayInfo(DwaneMonster.toString());
 	}
 }
