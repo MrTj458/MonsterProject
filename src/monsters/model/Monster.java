@@ -98,6 +98,7 @@ public class Monster
 		this.monsterBellyButton = monsterBellyButton;
 	}
 	
+	//Methods
 	public String toString()
 	{
 		String bbutton;
