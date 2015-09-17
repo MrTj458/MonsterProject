@@ -59,22 +59,8 @@ public class MonsterController
 		double newMonsterHairs = monsterScanner.nextDouble();
 		dwaneMonster.setMonsterLegs(newMonsterHairs);
 		
-		System.out.println("Will your monster have a belly button? [y/n]");
-		String usrBellyButton = monsterScanner.next();
-		boolean newMonsterBellyButton;
-		if (usrBellyButton.equals("y"))
-		{
-			newMonsterBellyButton = true;
-		}
-		else if (usrBellyButton.equals("n"))
-		{
-			newMonsterBellyButton = false;
-		}
-		else
-		{
-			System.out.println("Unknown response setting to false");
-			newMonsterBellyButton = false;
-		}
+		System.out.println("Will your monster have a belly button? Enter 'true' or 'false'.");
+		boolean newMonsterBellyButton = monsterScanner.nextBoolean();
 		dwaneMonster.setMonsterBellyButton(newMonsterBellyButton);
 	}
 	
