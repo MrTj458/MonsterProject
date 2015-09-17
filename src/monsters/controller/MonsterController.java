@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class MonsterController
 {
 	private Scanner monsterScanner;
-	private Monster DwaneMonster;
+	private Monster dwaneMonster;
+	private Monster userMonster;
 	private MonsterDisplay myDisplay;
 	
 	public MonsterController()
@@ -22,41 +23,41 @@ public class MonsterController
 		
 		monsterScanner = new Scanner(System.in);
 		myDisplay = new MonsterDisplay();
-		DwaneMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
+		dwaneMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
 	}
 	
 	public void start()
 	{
-		myDisplay.displayInfo(DwaneMonster.toString());
-		askQuestions();
-		myDisplay.displayInfo("Updated monster Info: " + DwaneMonster.toString());
+		myDisplay.displayInfo(dwaneMonster.toString());
+		createUserMonster();
+		myDisplay.displayInfo("User monster Info: " + userMonster.toString());
 	}
 	
 	private void askQuestions()
 	{
 		System.out.println("Enter a new name for your monster");
 		String newMonsterName = monsterScanner.next();
-		DwaneMonster.setMonsterName(newMonsterName);
+		dwaneMonster.setMonsterName(newMonsterName);
 		
 		System.out.println("How many eyes will your new monster have?");
 		int newMonsterEyes = monsterScanner.nextInt();
-		DwaneMonster.setMonsterEyes(newMonsterEyes);
+		dwaneMonster.setMonsterEyes(newMonsterEyes);
 		
 		System.out.println("How many noses will your new monster have?");
 		int newMonsterNoses = monsterScanner.nextInt();
-		DwaneMonster.setMonsterNoses(newMonsterNoses);
+		dwaneMonster.setMonsterNoses(newMonsterNoses);
 		
 		System.out.println("How many legs will your monster have?");
 		double newMonsterLegs = monsterScanner.nextDouble();
-		DwaneMonster.setMonsterLegs(newMonsterLegs);
+		dwaneMonster.setMonsterLegs(newMonsterLegs);
 		
 		System.out.println("How many arms will your monster have?");
 		double newMonsterArms = monsterScanner.nextDouble();
-		DwaneMonster.setMonsterLegs(newMonsterArms);
+		dwaneMonster.setMonsterLegs(newMonsterArms);
 		
 		System.out.println("How many hairs will your monster have?");
 		double newMonsterHairs = monsterScanner.nextDouble();
-		DwaneMonster.setMonsterLegs(newMonsterHairs);
+		dwaneMonster.setMonsterLegs(newMonsterHairs);
 		
 		System.out.println("Will your monster have a belly button? [y/n]");
 		String usrBellyButton = monsterScanner.next();
@@ -74,6 +75,37 @@ public class MonsterController
 			System.out.println("Unknown response setting to false");
 			newMonsterBellyButton = false;
 		}
-		DwaneMonster.setMonsterBellyButton(newMonsterBellyButton);
+		dwaneMonster.setMonsterBellyButton(newMonsterBellyButton);
+	}
+	
+	/**
+	 * Creates a Monster instance from user input.
+	 */
+	private void createUserMonster()
+	{
+		//Step one: Gather user information.
+		System.out.println("What is your monsters name?");
+		String userName = monsterScanner.nextLine();
+		
+		System.out.println("How many legs will your monster have? This is a decimal value.");
+		double userLegs = monsterScanner.nextDouble();
+		
+		System.out.println("How many hairs will it have?");
+		double userHair = monsterScanner.nextDouble();
+		
+		System.out.println("Does it have a belly button? Enter either 'true' or 'false'.");
+		boolean userHasBellyButton = monsterScanner.nextBoolean();
+		
+		System.out.println("How many eyes will it have?");
+		int userEyes = monsterScanner.nextInt();
+		
+		System.out.println("How many noses will your monster have?");
+		int userNoses = monsterScanner.nextInt();
+		
+		System.out.println("How mnay arms will your monster have?");
+		double userArms = monsterScanner.nextDouble();
+		
+		//Step two: Build the monster using the constructor.
+		userMonster = new Monster(userName, userHasBellyButton, userEyes, userNoses, userLegs, userHair, userArms);
 	}
 }
