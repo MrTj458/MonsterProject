@@ -1,5 +1,3 @@
-//Github test!
-
 package monsters.controller;
 
 import monsters.model.Monster;
@@ -90,7 +88,7 @@ public class MonsterController
 		System.out.println("How many noses will your monster have?");
 		int userNoses = monsterScanner.nextInt();
 		
-		System.out.println("How mnay arms will your monster have?");
+		System.out.println("How many arms will your monster have?");
 		double userArms = monsterScanner.nextDouble();
 		
 		//Step two: Build the monster using the constructor.
