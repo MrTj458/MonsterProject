@@ -63,7 +63,22 @@ public class MonsterController
 			eyes = 2;
 		}
 		
-		myPopups.displayResponse(eyes + " eyes? Interesting choice.");
+		if(eyes > 1)
+		{
+			myPopups.displayResponse(eyes + " eyes? that's quite a few noses!");
+		}
+		else if(eyes == 1)
+		{
+			myPopups.displayResponse(eyes + " eye? A cyclops!");
+		}
+		else if(eyes == 0)
+		{
+			myPopups.displayResponse("Really? Whatever.");
+		}
+		else
+		{
+			myPopups.displayResponse(eyes + " eyes? How is that possible?");
+		}
 		
 		//Noses
 		int noses;
@@ -86,11 +101,11 @@ public class MonsterController
 		
 		if(noses > 1)
 		{
-			myPopups.displayResponse(noses + "? that's quite a few noses!");
+			myPopups.displayResponse(noses + " noses? that's quite a few noses!");
 		}
 		else if(noses == 1)
 		{
-			myPopups.displayResponse(noses + "? Thats pretty boring");
+			myPopups.displayResponse(noses + " nose? Thats pretty boring");
 		}
 		else if(noses == 0)
 		{
@@ -98,8 +113,59 @@ public class MonsterController
 		}
 		else
 		{
-			myPopups.displayResponse(noses + "? How is that possible?");
+			myPopups.displayResponse(noses + " noses? How is that possible?");
 		}
+	}
+	
+	private boolean isInteger(String input)
+	{
+		boolean isInt = false;
+		
+		try
+		{
+			int validInteger = Integer.parseInt(input);
+			isInt = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.displayResponse("Integers only please!");
+		}
+		
+		return isInt;
+	}
+	
+	private boolean isDouble(String input)
+	{
+		boolean isDouble = false;
+		
+		try
+		{
+			double validDouble = Double.parseDouble(input);
+			isDouble = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.displayResponse("Doubles only please!");
+		}
+		
+		return isDouble;
+	}
+	
+	private boolean isBoolean(String input)
+	{
+		boolean isBoolean = false;
+		
+		try
+		{
+			boolean validBoolean = Boolean.parseBoolean(input);
+			isBoolean = true;
+		}
+		catch(NumberFormatException error)
+		{
+			myPopups.displayResponse("Booleans only please!");
+		}
+		
+		return isBoolean;
 	}
 	
 	/**
@@ -162,56 +228,5 @@ public class MonsterController
 		System.out.println("Will your monster have a belly button? Enter 'true' or 'false'.");
 		boolean newMonsterBellyButton = monsterScanner.nextBoolean();
 		dwaneMonster.setMonsterBellyButton(newMonsterBellyButton);
-	}
-	
-	private boolean isInteger(String input)
-	{
-		boolean isInt = false;
-		
-		try
-		{
-			int validInteger = Integer.parseInt(input);
-			isInt = true;
-		}
-		catch(NumberFormatException error)
-		{
-			myPopups.displayResponse("Integers only please!");
-		}
-		
-		return isInt;
-	}
-	
-	private boolean isDouble(String input)
-	{
-		boolean isDouble = false;
-		
-		try
-		{
-			double validDouble = Double.parseDouble(input);
-			isDouble = true;
-		}
-		catch(NumberFormatException error)
-		{
-			myPopups.displayResponse("Doubles only please!");
-		}
-		
-		return isDouble;
-	}
-	
-	private boolean isBoolean(String input)
-	{
-		boolean isBoolean = false;
-		
-		try
-		{
-			boolean validBoolean = Boolean.parseBoolean(input);
-			isBoolean = true;
-		}
-		catch(NumberFormatException error)
-		{
-			myPopups.displayResponse("Booleans only please!");
-		}
-		
-		return isBoolean;
 	}
 }
