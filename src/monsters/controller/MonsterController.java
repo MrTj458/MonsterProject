@@ -43,6 +43,7 @@ public class MonsterController
 	 */
 	public void start()
 	{
+		myDisplay.displayInfo("Hello there!");
 		myPopups.displayResponse("My monster is named " + dwaneMonster.toString() + " You should make a monster too!");
 		createUserMonsterPopups();
 		myPopups.displayResponse("Your monster is named " + userMonster.toString());
