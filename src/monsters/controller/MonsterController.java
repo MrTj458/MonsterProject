@@ -1,9 +1,9 @@
 package monsters.controller;
 
+import java.util.Scanner;
 import monsters.model.Monster;
 import monsters.view.MonsterDisplay;
 import monsters.view.MonsterPopups;
-import java.util.Scanner;
 
 /**
  * Main controller method for the whole program.
@@ -43,7 +43,7 @@ public class MonsterController
 	 */
 	public void start()
 	{
-		myPopups.displayResponse("My monster is named " + dwaneMonster.toString() + " You should make one too!");
+		myPopups.displayResponse("My monster is named " + dwaneMonster.toString() + " You should make a monster too!");
 		createUserMonsterPopups();
 		myPopups.displayResponse("Your monster is named " + userMonster.toString());
 	}
