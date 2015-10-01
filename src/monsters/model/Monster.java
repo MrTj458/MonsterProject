@@ -111,7 +111,7 @@ public class Monster
 			bbutton = "does not have";
 		}
 		
-		String monsterInfo = "My monster is named " + monsterName + ". He has " + monsterEyes + " eyes, "
+		String monsterInfo = monsterName + ". He has " + monsterEyes + " eyes, "
 		+ monsterNoses + " noses, " + monsterArms + " arms, " + monsterLegs + " legs, " + monsterHair + " hairs, and he " + bbutton + " a belly button.";
 		
 		return monsterInfo;
