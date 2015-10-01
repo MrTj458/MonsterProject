@@ -5,6 +5,12 @@ import monsters.view.MonsterDisplay;
 import monsters.view.MonsterPopups;
 import java.util.Scanner;
 
+/**
+ * Main controller method for the whole program.
+ * 
+ * @author MrTj458
+ * @version 1.0 9/30/15
+ */
 public class MonsterController
 {
 	private Scanner monsterScanner;
@@ -13,6 +19,9 @@ public class MonsterController
 	private MonsterDisplay myDisplay;
 	private MonsterPopups myPopups;
 
+	/**
+	 * Creates the default monster and initializes all of the objects.
+	 */
 	public MonsterController()
 	{
 		String name = "Dwane";
@@ -29,6 +38,9 @@ public class MonsterController
 		dwaneMonster = new Monster(name, BellyButton, eyes, noses, legs, hair, arms);
 	}
 
+	/**
+	 * Runs all of the needed methods for the program to work.
+	 */
 	public void start()
 	{
 		myPopups.displayResponse("My monster is named " + dwaneMonster.toString() + " You should make one too!");
@@ -265,6 +277,7 @@ public class MonsterController
 
 		try
 		{
+			@SuppressWarnings("unused")
 			int validInteger = Integer.parseInt(input);
 			isInt = true;
 		}
@@ -288,6 +301,7 @@ public class MonsterController
 
 		try
 		{
+			@SuppressWarnings("unused")
 			double validDouble = Double.parseDouble(input);
 			isDouble = true;
 		}
@@ -300,7 +314,7 @@ public class MonsterController
 	}
 
 	/**
-	 * Checks to see if the given string can be parsed as a double.
+	 * Checks to see if the given string can be parsed as a boolean.
 	 * 
 	 * @param input
 	 * @return
@@ -321,9 +335,14 @@ public class MonsterController
 		return isBoolean;
 	}
 
+	//
+	// Old code that is no longer used below.
+	//
+
 	/**
 	 * Creates a Monster instance from user input in the console.
 	 */
+	@SuppressWarnings("unused")
 	private void createUserMonsterConsole()
 	{
 		// Step one: Gather user information.
@@ -355,6 +374,7 @@ public class MonsterController
 	/**
 	 * Original code for asking questions.
 	 */
+	@SuppressWarnings("unused")
 	private void askQuestionsBasic()
 	{
 		System.out.println("Enter a new name for your monster");
