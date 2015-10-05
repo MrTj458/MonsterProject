@@ -43,9 +43,11 @@ public class MonsterController
 	 */
 	public void start()
 	{
-		myDisplay.displayInfo("Hello there!");
+		myDisplay.displayInfo("Hello there! It's time to run!");
+		myDisplay.displayInfo("My monster is named " + dwaneMonster.toString() + " You should make a monster too!");
 		myPopups.displayResponse("My monster is named " + dwaneMonster.toString() + " You should make a monster too!");
 		createUserMonsterPopups();
+		myDisplay.displayInfo("Your monster is named " + userMonster.toString());
 		myPopups.displayResponse("Your monster is named " + userMonster.toString());
 	}
 
@@ -54,13 +56,15 @@ public class MonsterController
 	 */
 	private void createUserMonsterPopups()
 	{
+		myDisplay.displayInfo("Time to make a monster!");
 		myPopups.displayResponse("Time to make a monster!");
-
 		// Name
+		myDisplay.displayInfo("Getting a new Name.");
 		String name = myPopups.getAnswer("What do you want to call your new monster?");
 		myPopups.displayResponse(name + "? Thats an neat name!");
 
 		// Eyes
+		myDisplay.displayInfo("Getting new amount of eyes.");
 		int eyes;
 		String tempEyes = myPopups.getAnswer("How many eyes will it have?");
 
@@ -69,6 +73,7 @@ public class MonsterController
 			tempEyes = myPopups.getAnswer("Try again. How many eyes?");
 		}
 
+		myDisplay.displayInfo("Double checking valid integer.");
 		if (isInteger(tempEyes))
 		{
 			eyes = Integer.parseInt(tempEyes);
@@ -97,6 +102,7 @@ public class MonsterController
 		}
 
 		// Noses
+		myDisplay.displayInfo("Getting new amount of noses.");
 		int noses;
 		String tempNoses = myPopups.getAnswer("How many noses will your monster have?");
 
@@ -105,6 +111,7 @@ public class MonsterController
 			tempNoses = myPopups.getAnswer("Try again. How many noses?");
 		}
 
+		myDisplay.displayInfo("Double checking valid integer.");
 		if (isInteger(tempNoses))
 		{
 			noses = Integer.parseInt(tempNoses);
@@ -132,7 +139,8 @@ public class MonsterController
 			myPopups.displayResponse(noses + " noses? How is that possible?");
 		}
 
-		// Legs
+		//Legs
+		myDisplay.displayInfo("Getting a new amount of legs.");
 		double legs;
 		String tempLegs = myPopups.getAnswer("How many legs will your monster have?");
 
@@ -141,6 +149,7 @@ public class MonsterController
 			tempLegs = myPopups.getAnswer("Try again. How many legs?");
 		}
 
+		myDisplay.displayInfo("Double checking valid double.");
 		if (isDouble(tempLegs))
 		{
 			legs = Double.parseDouble(tempLegs);
@@ -169,6 +178,7 @@ public class MonsterController
 		}
 
 		// Arms
+		myDisplay.displayInfo("Getting a new amount of arms.");
 		double arms;
 		String tempArms = myPopups.getAnswer("How many arms will your monster have?");
 
@@ -177,6 +187,7 @@ public class MonsterController
 			tempArms = myPopups.getAnswer("Try again. How many arms?");
 		}
 
+		myDisplay.displayInfo("Double checking valid double.");
 		if (isDouble(tempArms))
 		{
 			arms = Double.parseDouble(tempArms);
@@ -205,6 +216,7 @@ public class MonsterController
 		}
 
 		// hair
+		myDisplay.displayInfo("Getting a new amount of hair.");
 		double hair;
 		String tempHair = myPopups.getAnswer("How many hairs will your monster have?");
 
@@ -213,6 +225,7 @@ public class MonsterController
 			tempHair = myPopups.getAnswer("Try again. How many hairs?");
 		}
 
+		myDisplay.displayInfo("Double checking valid double.");
 		if (isDouble(tempHair))
 		{
 			hair = Double.parseDouble(tempHair);
@@ -241,6 +254,7 @@ public class MonsterController
 		}
 
 		// Bellybutton
+		myDisplay.displayInfo("Getting bellybutton boolean.");
 		boolean bellyButton;
 		String tempButton = myPopups.getAnswer("Will your monster have a belly button? true or false?");
 
@@ -249,6 +263,7 @@ public class MonsterController
 			tempButton = myPopups.getAnswer("Try agin. Bellybutton? true or false?");
 		}
 
+		myDisplay.displayInfo("Double checking valid boolean.");
 		if (isBoolean(tempButton))
 		{
 			bellyButton = Boolean.parseBoolean(tempButton);
@@ -263,6 +278,7 @@ public class MonsterController
 		myPopups.displayResponse("Your monster is ready want to see it?");
 
 		// Create monster
+		myDisplay.displayInfo("Creating new monster.");
 		userMonster = new Monster(name, bellyButton, eyes, noses, legs, hair, arms);
 	}
 
@@ -274,6 +290,7 @@ public class MonsterController
 	 */
 	private boolean isInteger(String input)
 	{
+		myDisplay.displayInfo("Checking for valid integer.");
 		boolean isInt = false;
 
 		try
@@ -281,9 +298,11 @@ public class MonsterController
 			@SuppressWarnings("unused")
 			int validInteger = Integer.parseInt(input);
 			isInt = true;
+			myDisplay.displayInfo("The integer is valid.");
 		}
 		catch (NumberFormatException error)
 		{
+			myDisplay.displayInfo("The integer is invalid");
 			myPopups.displayResponse("Integers only please!");
 		}
 
@@ -298,6 +317,7 @@ public class MonsterController
 	 */
 	private boolean isDouble(String input)
 	{
+		myDisplay.displayInfo("Checking for valid double.");
 		boolean isDouble = false;
 
 		try
@@ -305,9 +325,11 @@ public class MonsterController
 			@SuppressWarnings("unused")
 			double validDouble = Double.parseDouble(input);
 			isDouble = true;
+			myDisplay.displayInfo("The double is valid.");
 		}
 		catch (NumberFormatException error)
 		{
+			myDisplay.displayInfo("The double is invalid.");
 			myPopups.displayResponse("Doubles only please!");
 		}
 
@@ -322,14 +344,17 @@ public class MonsterController
 	 */
 	private boolean isBoolean(String input)
 	{
+		myDisplay.displayInfo("Checking for valid boolean.");
 		boolean isBoolean = false;
 
 		if (input.equals("true") || input.equals("false"))
 		{
+			myDisplay.displayInfo("The boolean is valid.");
 			isBoolean = true;
 		}
 		else
 		{
+			myDisplay.displayInfo("the boolean is invalid.");
 			myPopups.displayResponse("Booleans only please!");
 		}
 
